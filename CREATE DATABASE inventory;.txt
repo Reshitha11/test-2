@@ -1,0 +1,27 @@
+CREATE DATABASE inventory;
+USE inventory;
+CREATE TABLE customer(
+customer_id INT AUTO_INCREMENT PRIMARY KEY,
+first_name VARCHAR(50),
+last_name VARCHAR(50),
+email VARCHAR(100)UNIQUE,
+phone_number VARCHAR(15),
+city VARCHAR(50),
+state VARCHAR(50)
+);
+DESCRIBE customer;
+INSERT INTO customer(customer_id,first_name,last_name,email,phone_number,city,state)
+VALUES
+(1,'Reshitha','Geethanjana','reshitha@gmail.com',0776756435,'Bandarawela','Uva'),
+(2,'Keshawa','Hasantha','keshawa@gmail.com',0786756435,'Bandarawela','Uva'),
+(3,'Dayanath','Selvakumar','daya@gmail.com',0716756435,'Badulla','Uva'),
+(4,'Ajiyth','Kumar','ajith@gmail.com',0756756435,'Bandarawela','Uva');
+DESCRIBE customer;
+UPDATE customer
+SET last_name = 'Raja'
+WHERE customer_id = 3; 
+DELETE FROM customer WHERE customer_id = 4;
+DESCRIBE customer;
+SELECT city,COUNT(*)AS customer_count
+FROM customer
+GROUP BY city;
